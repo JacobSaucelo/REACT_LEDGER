@@ -1,18 +1,12 @@
-import { useState } from 'react'
-import { Button } from './components/ui/button'
-import './App.css'
+import "./App.css";
+import LedgerMain from "./page/Ledger/Ledger.Main";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      template
-      <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>test</Button>
-    </div>
+      <LedgerMain />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

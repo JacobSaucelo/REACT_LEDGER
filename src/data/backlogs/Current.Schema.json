@@ -1,0 +1,31 @@
+{
+  "ledger_entry": {
+    "id": "UUID",
+    "title": "string", 
+    "description": "string",
+    "amount": "decimal",
+    "currency": "USD",
+    "category": "string", 
+    "status": "string", 
+    "type": "Income | Expense | Transfer",
+    
+    "account_from": "string", 
+    "account_to": "string", 
+
+    "date": "YYYY-MM-DD",
+    "date_created": "timestamp",
+    "date_updated": "timestamp",
+    "created_by": "user_id",
+    "updated_by": "user_id",
+
+    "tags": ["string"],
+    "notes": "string",
+
+    "attachments": [
+      {
+        "file_name": "string",
+        "file_url": "string"
+      }
+    ]
+  }
+}
