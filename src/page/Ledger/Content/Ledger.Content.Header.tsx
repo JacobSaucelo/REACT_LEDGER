@@ -6,7 +6,8 @@ export default function LedgerContentHeader() {
       <aside className="flex items-center gap-2 text-white bg-black dark:bg-yellow-400 dark:text-black p-2">
         <Landmark size={35} />
         <h1 className="scroll-m-20 text-4xl font-extrabold text-balance">
-          LEDGR
+          {/* LEDGR */}
+          LΞDGR
         </h1>
       </aside>
       <aside>

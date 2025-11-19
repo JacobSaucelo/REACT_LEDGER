@@ -1,6 +1,7 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
+import { FEATURES_Format_Date } from "@/Features/Date/Features.Date";
 import { ColumnDef } from "@tanstack/react-table";
 import {
   ArrowDown,
@@ -64,7 +65,7 @@ export const CONFIG_COLUMNS: ColumnDef<TYPE_RECORD>[] = [
   },
   {
     accessorKey: "category",
-    header: "category",
+    header: "Category",
     cell: ({ row }) => {
       const Category: string = row.getValue("category");
 
@@ -78,7 +79,7 @@ export const CONFIG_COLUMNS: ColumnDef<TYPE_RECORD>[] = [
   },
   {
     accessorKey: "type",
-    header: "type",
+    header: "Type",
     cell: ({ row }) => {
       const type: string = row.getValue("type");
 
@@ -108,15 +109,26 @@ export const CONFIG_COLUMNS: ColumnDef<TYPE_RECORD>[] = [
       }
     },
   },
-  { accessorKey: "account_from", header: "account_from" },
-  { accessorKey: "account_to", header: "account_to" },
-  { accessorKey: "date", header: "date" },
-  { accessorKey: "date_created", header: "date_created" },
-  { accessorKey: "date_updated", header: "date_updated" },
-  { accessorKey: "created_by", header: "created_by" },
-  { accessorKey: "updated_by", header: "updated_by" },
-  { accessorKey: "tags", header: "tags" },
-  { accessorKey: "notes", header: "notes" },
+  { accessorKey: "account_from", header: "Account From" },
+  { accessorKey: "account_to", header: "Account To" },
+  {
+    accessorKey: "date",
+    header: "Date",
+    cell: ({ row }) => {
+      const date: string = row.getValue("date");
+      return (
+        <p className="text-right font-medium">
+          {FEATURES_Format_Date(date, "MEDIUM")}
+        </p>
+      );
+    },
+  },
+  // { accessorKey: "date_created", header: "date_created" },
+  // { accessorKey: "date_updated", header: "date_updated" },
+  // { accessorKey: "created_by", header: "created_by" },
+  // { accessorKey: "updated_by", header: "updated_by" },
+  // { accessorKey: "tags", header: "tags" },
+  // { accessorKey: "notes", header: "notes" },
   // { accessorKey: "attachments", header: "attachments" },
   { accessorKey: "status", header: "status" },
 ];
