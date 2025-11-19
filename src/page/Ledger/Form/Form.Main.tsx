@@ -61,7 +61,7 @@ export default function PositiveNumberForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-6 max-w-sm"
+        className="flex flex-col gap-3"
       >
         <FormField
           control={form.control}
@@ -91,60 +91,65 @@ export default function PositiveNumberForm() {
           )}
         />
 
-        <FormField
-          control={form.control}
-          name="amount"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Positive Number</FormLabel>
+        <aside className="grid grid-cols-2">
+          <FormField
+            control={form.control}
+            name="currency"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Currency</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select Currency" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {DATA_Currency_Raw.map((ITEM, INDEX) => (
+                      <SelectItem value={ITEM.name} key={INDEX}>
+                        {ITEM.name}
+                        {/* - {ITEM.country} - {ITEM.symbol} */}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-              <FormControl>
-                <Input
-                  type="number"
-                  min={1}
-                  {...field}
-                  onChange={(e) => {
-                    const value = Number(e.target.value);
-
-                    if (e.target.value === "") {
-                      field.onChange(undefined);
-                      return;
-                    }
-
-                    field.onChange(Math.abs(value));
-                  }}
-                />
-              </FormControl>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="currency"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Currency</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+          <FormField
+            control={form.control}
+            name="amount"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Positive Number</FormLabel>
                 <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select Currency" />
-                  </SelectTrigger>
+                  <Input
+                    type="number"
+                    min={1}
+                    {...field}
+                    onChange={(e) => {
+                      const value = Number(e.target.value);
+
+                      if (e.target.value === "") {
+                        field.onChange(undefined);
+                        return;
+                      }
+
+                      field.onChange(Math.abs(value));
+                    }}
+                  />
                 </FormControl>
-                <SelectContent>
-                  {DATA_Currency_Raw.map((ITEM, INDEX) => (
-                    <SelectItem value={ITEM.name} key={INDEX}>
-                      {ITEM.name} - {ITEM.country} - {ITEM.symbol}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </aside>
 
         <FormField
           control={form.control}
@@ -196,33 +201,35 @@ export default function PositiveNumberForm() {
           )}
         />
 
-        <FormField
-          control={form.control}
-          name="account_from"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Account From</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <aside className="grid grid-cols-2 gap-2">
+          <FormField
+            control={form.control}
+            name="account_from"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Account From</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name="account_to"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Account To</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          <FormField
+            control={form.control}
+            name="account_to"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Account To</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </aside>
 
         <FormField
           control={form.control}

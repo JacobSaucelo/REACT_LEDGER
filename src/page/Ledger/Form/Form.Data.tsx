@@ -34,6 +34,6 @@ export const DATA_Currency_Raw = [
 
 export const DATA_Category = ["Restocking", "Debt", "Income"];
 
-export const DATA_Type = ["Income", "Expense"];
+export const DATA_Type = ["Income", "Expense", "Transfer"];
 
 export const DATA_STATUS = ["Active", "Archived"];

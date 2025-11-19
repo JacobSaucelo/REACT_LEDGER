@@ -9,13 +9,16 @@ export default function LedgerMain() {
     <section className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-[1400px] m-auto p-2">
       <article className="hidden md:block border p-4 rounded">
         <ModeToggle />
+
+        <ProfileForm />
       </article>
-      <article className="col-span-2 md:col-span-2 border rounded">
+      <article className="col-span-2 md:col-span-2">
         <LedgerContentHeader />
+        <TableTransactionsMain />
       </article>
 
       {/* <ProfileForm />
-      <TableTransactionsMain /> */}
+       */}
     </section>
   );
 }
