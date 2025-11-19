@@ -25,6 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { FEATURES_Generate_UUID } from "@/Features/ID/Features.GenerateUUID";
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -32,6 +33,7 @@ export default function PositiveNumberForm() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      id: FEATURES_Generate_UUID(),
       title: "",
       description: "",
       amount: 1,
