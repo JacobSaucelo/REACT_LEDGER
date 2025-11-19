@@ -1,4 +1,4 @@
-import { ProfileForm } from "./Form/Form.Main";
+import ProfileForm from "./Form/Form.Main";
 import TableTransactionsMain from "./Table/Table.Transactions.Main";
 
 export default function LedgerMain() {
